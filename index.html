@@ -273,20 +273,28 @@ h1 {
         <a href="mailto:stressweg-muenchen@web.de">stressweg-muenchen@web.de</a><br>
         <span class="contact-icons">📞</span>Telefon: 01728925219
       </p>
-
+         </section>
+    
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
   <meta charset="UTF-8">
-   <title>Meine Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meine Website</title>
   <style>
     body {
-      text-align: center; /* Zentriert horizontal */
-      margin-top: 50px;   /* Abstand nach oben */
+      display: flex;
+      justify-content: center;  /* horizontal zentrieren */
+      align-items: center;      /* vertikal zentrieren */
+      height: 100vh;            /* gesamte Bildschirmhöhe */
+      margin: 0;
+      background-color: #f8f9fa; /* optional: heller Hintergrund */
     }
     img {
-      width: 4cm;         /* ca. 4 cm breit */
-      height: auto;       /* Höhe passt sich an */
+      width: min(4cm, 80%);     /* auf Desktop 4cm, auf Handy max. 80% der Bildschirmbreite */
+      height: auto;             /* Höhe proportional */
+      border-radius: 10px;      /* leicht abgerundet */
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.2); /* leichter Schatten */
     }
   </style>
 </head>
@@ -294,8 +302,7 @@ h1 {
   <img src="images/logo.jpg" alt="Mein Bild">
 </body>
 </html>
-      
-         </section>
+    
   </main>
 
   <footer>
