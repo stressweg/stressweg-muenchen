@@ -8,34 +8,114 @@
   <link rel="icon" href="https://img.icons8.com/fluency/48/relax.png" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
   <style>
+    :root{
+      --nav-h:64px; /* Höhe der fixen Navigation für Offset */
+    }
+    html{
+      scroll-behavior:smooth;
+    }
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+    }
+
     body {
       font-family: 'Montserrat', Arial, sans-serif;
       margin: 0;
-      padding: 0;
       color: #333;
       line-height: 1.7;
       background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
       background-size: cover;
     }
-    header {
-      background-color: rgba(74, 144, 164, 0.92);
+
+    /* --- Navigation --- */
+    nav {
+      background-color: rgba(74, 144, 164, 0.95);
       color: white;
-      padding: 2.5rem 2rem 2rem 2rem;
-      text-align: center;
-      box-shadow: 0 4px 24px rgba(74,144,164,0.09);
-      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+      height: var(--nav-h);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     }
-    .logo {
-      font-size: 2.2rem;
+    nav .logo {
+      font-size: 1.6rem;
       font-weight: 700;
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.7rem;
+      gap: 0.6rem;
     }
-    .logo img { height: 2.2rem; vertical-align: middle; }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: .4rem .2rem;
+      border-radius: 6px;
+      transition: background-color .2s, color .2s;
+    }
+    nav ul li a:hover, nav ul li a:focus-visible{
+      background-color: rgba(255,255,255,.12);
+      outline: none;
+    }
+
+    /* --- Mobile Menü Button --- */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .menu-toggle div {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 768px) {
+      nav{ padding: 0 1rem; }
+      nav ul {
+        display: none;
+        position: absolute;
+        top: var(--nav-h);
+        right: 0;
+        flex-direction: column;
+        background: rgba(74, 144, 164, 0.97);
+        width: min(260px, 90vw);
+        padding: .8rem;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 10px 24px rgba(0,0,0,.12);
+      }
+      nav ul.show { display: flex; }
+      .menu-toggle { display: flex; }
+    }
+
+    /* --- Header --- */
+    header {
+      text-align: center;
+      padding: calc(2.5rem + .5*var(--nav-h)) 2rem 2rem 2rem; /* etwas mehr Top-Padding wegen sticky Nav */
+      color: white;
+    }
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    /* --- Main Content --- */
     main {
       max-width: 900px;
       margin: 2rem auto;
@@ -45,21 +125,18 @@
       box-shadow: 0 8px 32px rgba(74,144,164,0.07);
       animation: fadeIn 1.2s;
     }
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(40px);} to { opacity: 1; transform: none;} }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px);}
+      to { opacity: 1; transform: none;}
+    }
+
     h2, h3 { color: #4a90a4; font-weight: 700; }
-    h1 { color: #fff; font-weight: 700; font-size: 2.1rem; margin-bottom: 0.5rem; }
-    h2 { margin-top: 2rem; margin-bottom: 1rem; font-size: 1.4rem; letter-spacing: 1px; }
-    h3 { margin-top: 1.5rem; margin-bottom: 0.8rem; font-size: 1.1rem; }
     section { margin-bottom: 2.5rem; }
-    ul { padding-left: 1.5rem; }
-    ul li { position: relative; padding-left: 1.2rem; margin-bottom: 0.6rem; }
-    ul li::before { content: "✔"; color: #4a90a4; position: absolute; left: 0; font-size: 1.1rem; top: 0; }
     .highlight {
       background-color: #eef8fb;
       padding: 1.2rem;
       border-left: 5px solid #4a90a4;
-      border-radius: 8px 0 0 8px;
-      box-shadow: 0 2px 8px rgba(74,144,164,0.04);
+      border-radius: 8px;
       margin-bottom: 2rem;
       font-size: 1.06rem;
     }
@@ -70,6 +147,13 @@
       margin-bottom: 1.5rem;
       box-shadow: 0 2px 8px rgba(74,144,164,0.03);
     }
+    ul { padding-left: 1.5rem; }
+    ul li { margin-bottom: 0.6rem; }
+
+    /* Anker-Offset: verhindert, dass Titel unter der Navi verschwinden */
+    section[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
+
+    /* --- Footer --- */
     footer {
       background-color: rgba(224, 224, 224, 0.93);
       text-align: center;
@@ -79,117 +163,76 @@
       border-radius: 0 0 12px 12px;
       box-shadow: 0 -2px 16px rgba(74,144,164,0.04);
     }
-    a { color: #4a90a4; text-decoration: none; transition: color 0.2s; }
-    a:hover { color: #417b8e; text-decoration: underline; }
-    input, textarea {
-      padding: 0.7rem; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; width: 100%;
-      box-sizing: border-box; margin-bottom: 1rem; background: #f9f9f9; transition: border 0.2s;
-    }
-    input:focus, textarea:focus { border: 1.5px solid #4a90a4; outline: none; background: #eef8fb; }
-    button {
-      padding: 0.8rem 2.2rem; background-color: #4a90a4; color: white; border: none; border-radius: 4px; cursor: pointer;
-      font-size: 1rem; box-shadow: 0 2px 10px rgba(74,144,164,0.06); font-weight: 600; transition: background 0.2s;
-    }
-    button:hover { background-color: #417b8e; }
-    .contact-icons { font-size: 1.2rem; margin-right: 0.45rem; vertical-align: middle; color: #4a90a4; }
-    .form-label { font-weight: 500; color: #417b8e; margin-bottom: 0.3rem; display: block; }
-
-    /* --- Impressum Schrift kleiner --- */
-    #impressum {
-      font-size: 0.85rem;
-      line-height: 1.5;
-    }
-    #impressum h2 {
-      font-size: 1.2rem;
-    }
-    #impressum h3 {
-      font-size: 1rem;
-    }
-
-    @media (max-width: 600px) { 
-      main { padding: 1rem; } 
-      header { padding: 1.2rem 0.6rem;} 
-      .logo { font-size: 1.4rem;} 
-    }
+    a { color: #4a90a4; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-  <header>
+  <!-- Navigation -->
+  <nav>
     <div class="logo">
-      Stressbewältigungskurse
+      <img src="https://img.icons8.com/fluency/48/relax.png" alt="Logo" style="height:28px;">
+      Stresskurse
     </div>
+    <div class="menu-toggle" aria-label="Menü öffnen" role="button" tabindex="0">
+      <div></div><div></div><div></div>
+    </div>
+    <ul>
+      <li><a href="#angebot">Kursangebot</a></li>
+      <li><a href="#programm">Programm</a></li>
+      <li><a href="#leiter">Kursleiter</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- Header -->
+  <header>
     <h1>Der erfolgreiche Umgang mit täglichen Belastungen</h1>
     <p>Ein Gruppenprogramm zur Stressbewältigung</p>
   </header>
 
+  <!-- Main -->
   <main>
     <section style="text-align:center; margin-top: 2rem;">
-      <img src="images/Logo.jpg" alt=""
-           style="width:6cm; height:auto; border:none; box-shadow:none; border-radius:0; filter:none;">
+      <img src="images/Logo.jpg" alt="Logo" style="width:6cm; height:auto; border:none; box-shadow:none; border-radius:0; filter:none;">
     </section>
 
-    <section class="highlight">
+    <section class="highlight" id="angebot">
       <p>Ein Gruppenprogramm für alle, die mit täglichen Belastungen besser zurechtkommen wollen.</p>
     </section>
 
-    <section>
+    <section class="info-box">
       <h2>Kursangebot</h2>
-      <div class="info-box">
-        <p>
-          Melissa Diem und Hannah Stadler bieten regelmäßig <strong>Kurse zur Stressbewältigung</strong> an.
-          Alle Kurse dauern insgesamt zehn Wochen mit wöchentlichen Treffen von jeweils 1,5 Stunden.
-          Auch als Unternehmen können Sie uns als Präventionsmaßnahme für ihr Team buchen.
-          Unser Manual kann auch als Tagesworkshop stattfinden.
-        </p>
-        <p>
-          Die Kosten für den Kurs pro Teilnehmer*in betragen <strong>490 Euro</strong> und werden in der Regel von den Krankenkassen bezuschusst.
-        </p>
-      </div>
+      <p>Melissa Diem und Hannah Stadler bieten regelmäßig <strong>Kurse zur Stressbewältigung</strong> an. Alle Kurse dauern insgesamt zehn Wochen mit wöchentlichen Treffen von jeweils 1,5 Stunden. Auch als Unternehmen können Sie uns als Präventionsmaßnahme für ihr Team buchen. Unser Manual kann auch als Tagesworkshop stattfinden.</p>
+      <p>Die Kosten für den Kurs pro Teilnehmer*in betragen <strong>490 Euro</strong> und werden in der Regel von den Krankenkassen bezuschusst.</p>
     </section>
 
-    <section>
+    <section id="programm">
       <h2>Informationen zum Programm</h2>
-      <p>
-        Dauerhafte Stressbelastungen bergen ein hohes Gesundheitsrisiko in sich. Sie können sowohl zu psychischen als auch körperlichen Erkrankungen bis hin zum Burnout führen.
-      </p>
-      <p>
-        Das Gruppenprogramm <strong>Der erfolgreiche Umgang mit täglichen Belastungen</strong> bietet in Kursen die Möglichkeit, <strong>Strategien zur Stressbewältigung</strong> zu erwerben.
-        Es beruht auf <strong>aktuellen wissenschaftlichen Erkenntnissen</strong> der Stressforschung und erfüllt die Anforderungen von Krankenkassen und Gesundheitsverbänden.
-      </p>
+      <p>Dauerhafte Stressbelastungen bergen ein hohes Gesundheitsrisiko in sich. Sie können sowohl zu psychischen als auch körperlichen Erkrankungen bis hin zum Burnout führen.</p>
+      <p>Das Gruppenprogramm <strong>Der erfolgreiche Umgang mit täglichen Belastungen</strong> bietet in Kursen die Möglichkeit, <strong>Strategien zur Stressbewältigung</strong> zu erwerben. Es beruht auf <strong>aktuellen wissenschaftlichen Erkenntnissen</strong> der Stressforschung und erfüllt die Anforderungen von Krankenkassen und Gesundheitsverbänden.</p>
     </section>
 
-    <section>
+    <section id="leiter">
       <h2>Wer führt die Kurse durch?</h2>
-      <p>
-        Die Kurse werden von erfahrenen Psycholog*innen durchgeführt, die von der <strong>IFT-Gesundheitsförderung</strong> speziell ausgebildet wurden. 
-        Adresse: Elisenstraße 5, 80335 München
-      </p>
+      <p>Die Kurse werden von erfahrenen Psycholog*innen durchgeführt, die von der <strong>IFT-Gesundheitsförderung</strong> speziell ausgebildet wurden. Adresse: Elisenstraße 5, 80335 München</p>
     </section>
 
     <section>
       <h2>Wie lange dauert ein Kurs?</h2>
-      <p>
-        Ein Kurs dauert zwischen <strong>zwei bis drei Monaten</strong>.
-      </p>
+      <p>Ein Kurs dauert zwischen <strong>zwei bis drei Monaten</strong>.</p>
     </section>
 
     <section>
       <h2>Für wen ist der Kurs geeignet?</h2>
-      <p>
-        Teilnehmen können <strong>Erwachsene und Jugendliche</strong>, die lernen möchten, besser mit Stress und Belastungen umzugehen.
-        Auch als Unternehmen können Sie uns als Präventionsmaßnahme für ihr Team buchen.
-      </p>
+      <p>Teilnehmen können <strong>Erwachsene und Jugendliche</strong>, die lernen möchten, besser mit Stress und Belastungen umzugehen. Auch als Unternehmen können Sie uns als Präventionsmaßnahme für ihr Team buchen.</p>
     </section>
 
     <section>
       <h2>Informationen zum Kurs</h2>
-      <p>
-        Der Kurs wird in <strong>Gruppen mit bis zu zwölf Teilnehmer*innen</strong> durchgeführt. So bleibt genug Zeit für individuelle Unterstützung.
-      </p>
-      <p>
-        Sie lernen, Situationen schnell und sicher zu analysieren und gezielt zu verändern.
-      </p>
+      <p>Der Kurs wird in <strong>Gruppen mit bis zu zwölf Teilnehmer*innen</strong> durchgeführt. So bleibt genug Zeit für individuelle Unterstützung.</p>
+      <p>Sie lernen, Situationen schnell und sicher zu analysieren und gezielt zu verändern.</p>
 
       <h3>Neue Strategien erlernen und erproben</h3>
       <ul>
@@ -200,31 +243,57 @@
         <li>Zeitmanagement</li>
         <li>Stressausgleichende Aktivitäten</li>
       </ul>
-      <p>
-        Besonderer Wert wird auf die <strong>Umsetzung im Alltag</strong> gelegt, um langfristig Stress vorzubeugen.
-      </p>
+      <p>Besonderer Wert wird auf die <strong>Umsetzung im Alltag</strong> gelegt, um langfristig Stress vorzubeugen.</p>
     </section>
 
     <!-- KONTAKT -->
-    <section>
+    <section id="kontakt">
       <h2>Kontakt</h2>
       <p>Sie haben Interesse oder Fragen? Schreiben Sie uns einfach eine E-Mail oder rufen Sie uns an:</p>
       <p>
-        <span class="contact-icons">📧</span>
-        <a href="mailto:stressweg-muenchen@web.de">stressweg-muenchen@web.de</a><br>
-        <span class="contact-icons">📞</span>
-        Telefon: <a href="tel:+491728925219">+49&nbsp;172&nbsp;8925219</a>
+        📧 <a href="mailto:stressweg-muenchen@web.de">stressweg-muenchen@web.de</a><br>
+        📞 <a href="tel:+491728925219">+49&nbsp;172&nbsp;8925219</a>
       </p>
     </section>
-    
   </main>
-  
- 
- <footer>
-  &copy; 2025 Melissa Diem &amp; Hannah Stadler – Stressbewältigungskurse ·
-  <a href="impressum.html">Impressum</a> ·
-  <a href="datenschutz.html">Datenschutz</a>
-</footer>
 
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Melissa Diem &amp; Hannah Stadler – Stressbewältigungskurse ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="datenschutz.html">Datenschutz</a>
+  </footer>
+
+  <script>
+    // Mobile Menü Toggle + Schließen nach Klick
+    const toggle = document.querySelector(".menu-toggle");
+    const menu = document.querySelector("nav ul");
+
+    function toggleMenu(){ menu.classList.toggle("show"); }
+    toggle.addEventListener("click", toggleMenu);
+    toggle.addEventListener("keydown", (e)=>{ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); toggleMenu(); }});
+
+    // Links schließen das Menü auf Mobile
+    menu.querySelectorAll("a[href^='#']").forEach(a => {
+      a.addEventListener("click", () => menu.classList.remove("show"));
+    });
+
+    // (Optional) Sanfter Scroll-Fallback mit Offset für sehr alte Browser
+    // Moderne Browser nutzen CSS scroll-behavior + scroll-margin-top
+    document.querySelectorAll("a[href^='#']").forEach(link => {
+      link.addEventListener("click", function(e){
+        const id = this.getAttribute("href").slice(1);
+        const target = document.getElementById(id);
+        if (!target) return;
+        // wenn Browser scroll-behavior nicht unterstützt, eigenes Scrollen
+        if (!('scrollBehavior' in document.documentElement.style)) {
+          e.preventDefault();
+          const y = target.getBoundingClientRect().top + window.pageYOffset - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) + 16);
+          window.scrollTo({ top: y, behavior: "smooth" });
+          history.pushState(null, "", "#" + id);
+        }
+      });
+    });
+  </script>
 </body>
 </html>
