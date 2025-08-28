@@ -5,15 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Stressbewältigungskurse – Diem & Stadler</title>
   <meta name="description" content="Professionelle Stressbewältigungskurse in München von Psychologinnen Diem & Stadler. Gruppenkurse, individuelle Beratung und nachhaltige Methoden." />
-  <link rel="icon" href="https://img.icons8.com/fluency/48/relax.png" />
+  <link rel="icon" href="mensch.png" />
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
   <style>
     :root{
-      --nav-h:64px; /* Höhe der fixen Navigation für Offset */
+      --nav-h:64px;
+      --primary:#E67E22;   /* warmes Orange */
+      --primary-dark:#D35400;
+      --text:#333;
     }
-    html{
-      scroll-behavior:smooth;
-    }
+    html{ scroll-behavior:smooth; }
     @media (prefers-reduced-motion: reduce){
       html{ scroll-behavior:auto; }
     }
@@ -21,15 +22,29 @@
     body {
       font-family: 'Montserrat', Arial, sans-serif;
       margin: 0;
-      color: #333;
+      color: var(--text);
       line-height: 1.7;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background: url('images/pexels-bg.jpg') no-repeat center center fixed;
       background-size: cover;
+      position: relative;
+    }
+
+    /* Verlauf-Overlay für bessere Lesbarkeit */
+    body::before {
+      content:"";
+      position: fixed;
+      top:0; left:0; right:0; bottom:0;
+      background: linear-gradient(
+        rgba(0,0,0,0.1) 0%,
+        rgba(0,0,0,0.3) 40%,
+        rgba(0,0,0,0.55) 100%
+      );
+      z-index:-1;
     }
 
     /* --- Navigation --- */
     nav {
-      background-color: rgba(74, 144, 164, 0.95);
+      background-color: rgba(139, 69, 19, 0.92); /* warmes Braun */
       color: white;
       display: flex;
       justify-content: space-between;
@@ -39,7 +54,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
     }
     nav .logo {
       font-size: 1.6rem;
@@ -49,19 +64,13 @@
       gap: 0.6rem;
       color: #fff;
     }
-    /* Logo-Bild (PNG mit Transparenz) */
-    nav .logo img{
-      height: 40px; /* bei Bedarf anpassen */
-      width: auto;
-      display: block;
-    }
+    nav .logo img{ height:40px; width:auto; }
 
     nav ul {
       list-style: none;
       display: flex;
       gap: 1.5rem;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
     }
     nav ul li a {
       color: white;
@@ -69,11 +78,10 @@
       font-weight: 500;
       padding: .4rem .2rem;
       border-radius: 6px;
-      transition: background-color .2s, color .2s;
+      transition: background-color .2s;
     }
-    nav ul li a:hover, nav ul li a:focus-visible{
-      background-color: rgba(255,255,255,.12);
-      outline: none;
+    nav ul li a:hover{
+      background-color: rgba(255,255,255,.15);
     }
 
     /* --- Mobile Menü Button --- */
@@ -89,90 +97,85 @@
       background: white;
       border-radius: 2px;
     }
-
     @media (max-width: 768px) {
-      nav{ padding: 0 1rem; }
+      nav{ padding:0 1rem; }
       nav ul {
-        display: none;
-        position: absolute;
-        top: var(--nav-h);
-        right: 0;
-        flex-direction: column;
-        background: rgba(74, 144, 164, 0.97);
-        width: min(260px, 90vw);
-        padding: .8rem;
-        border-radius: 0 0 10px 10px;
-        box-shadow: 0 10px 24px rgba(0,0,0,.12);
+        display:none;
+        position:absolute;
+        top:var(--nav-h);
+        right:0;
+        flex-direction:column;
+        background: rgba(139,69,19,0.95);
+        width:min(260px,90vw);
+        padding:.8rem;
+        border-radius:0 0 10px 10px;
+        box-shadow:0 10px 24px rgba(0,0,0,.25);
       }
-      nav ul.show { display: flex; }
-      .menu-toggle { display: flex; }
+      nav ul.show{ display:flex; }
+      .menu-toggle{ display:flex; }
     }
 
     /* --- Header --- */
     header {
-      text-align: center;
-      padding: calc(2.5rem + .5*var(--nav-h)) 2rem 2rem 2rem; /* etwas mehr Top-Padding wegen sticky Nav */
+      text-align:center;
+      padding: calc(2.5rem + .5*var(--nav-h)) 2rem 2rem 2rem;
       color: white;
+      text-shadow:0 2px 4px rgba(0,0,0,0.6);
     }
-    header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      font-weight: 400;
-    }
+    header h1{ font-size:2.2rem; margin-bottom:.5rem; }
+    header p{ font-size:1.2rem; font-weight:400; }
 
     /* --- Main Content --- */
     main {
       max-width: 900px;
       margin: 2rem auto;
       padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.97);
+      background-color: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
-      box-shadow: 0 8px 32px rgba(74,144,164,0.07);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
       animation: fadeIn 1.2s;
     }
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(40px);}
-      to { opacity: 1; transform: none;}
+      from{ opacity:0; transform:translateY(40px);}
+      to{ opacity:1; transform:none;}
     }
 
-    h2, h3 { color: #4a90a4; font-weight: 700; }
-    section { margin-bottom: 2.5rem; }
+    h2,h3 { color: var(--primary); font-weight:700; }
+    section{ margin-bottom:2.5rem; }
+
     .highlight {
-      background-color: #eef8fb;
+      background-color: #fff5ec;
       padding: 1.2rem;
-      border-left: 5px solid #4a90a4;
+      border-left: 5px solid var(--primary);
       border-radius: 8px;
       margin-bottom: 2rem;
       font-size: 1.06rem;
     }
     .info-box {
-      background-color: #f7f7f7;
+      background-color: #fdf6f0;
       border-radius: 8px;
       padding: 1rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 2px 8px rgba(74,144,164,0.03);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
-    ul { padding-left: 1.5rem; }
-    ul li { margin-bottom: 0.6rem; }
+    ul{ padding-left:1.5rem; }
+    ul li{ margin-bottom:.6rem; }
 
-    /* Anker-Offset: verhindert, dass Titel unter der Navi verschwinden */
-    section[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
+    section[id]{ scroll-margin-top: calc(var(--nav-h) + 16px); }
 
     /* --- Footer --- */
     footer {
-      background-color: rgba(224, 224, 224, 0.93);
+      background-color: rgba(139,69,19,0.9);
       text-align: center;
       padding: 1.1rem;
       font-size: 1rem;
       margin-top: 2rem;
       border-radius: 0 0 12px 12px;
-      box-shadow: 0 -2px 16px rgba(74,144,164,0.04);
+      box-shadow: 0 -2px 16px rgba(0,0,0,0.2);
+      color: #fff;
     }
-    a { color: #4a90a4; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    footer a{ color:#ffd699; text-decoration:none; }
+    footer a:hover{ text-decoration:underline; }
   </style>
 </head>
 <body>
@@ -180,7 +183,6 @@
   <!-- Navigation -->
   <nav>
     <div class="logo">
-      <!-- Neues Logo: mensch.png -->
       <img src="mensch.png" alt="Logo Stressbewältigungskurse">
       <span>stressweg</span>
     </div>
@@ -209,66 +211,23 @@
 
     <section class="info-box">
       <h2>Kursangebot</h2>
-      <p>Melissa Diem und Hannah Stadler bieten regelmäßig <strong>Kurse zur Stressbewältigung</strong> an. Alle Kurse dauern insgesamt zehn Wochen mit wöchentlichen Treffen von jeweils 1,5 Stunden. Auch als Unternehmen können Sie uns als Präventionsmaßnahme für ihr Team buchen. Unser Manual kann auch als Tagesworkshop stattfinden.</p>
-      <p>Die Kosten für den Kurs pro Teilnehmer*in betragen <strong>490 Euro</strong> und werden in der Regel von den Krankenkassen bezuschusst.</p>
+      <p>Melissa Diem und Hannah Stadler bieten regelmäßig <strong>Kurse zur Stressbewältigung</strong> an. Alle Kurse dauern insgesamt zehn Wochen mit wöchentlichen Treffen von jeweils 1,5 Stunden. Auch als Unternehmen können Sie uns als Präventionsmaßnahme für ihr Team buchen.</p>
     </section>
 
     <section id="programm">
       <h2>Informationen zum Programm</h2>
-      <p>Dauerhafte Stressbelastungen bergen ein hohes Gesundheitsrisiko in sich. Sie können sowohl zu psychischen als auch körperlichen Erkrankungen bis hin zum Burnout führen.</p>
-      <p>Das Gruppenprogramm <strong>Der erfolgreiche Umgang mit täglichen Belastungen</strong> bietet in Kursen die Möglichkeit, <strong>Strategien zur Stressbewältigung</strong> zu erwerben. Es beruht auf <strong>aktuellen wissenschaftlichen Erkenntnissen</strong> der Stressforschung und erfüllt die Anforderungen von Krankenkassen und Gesundheitsverbänden.</p>
-
-      <h2>Wo finden die Kurse statt?</h2>
-      <p>  Adresse: Elisenstraße 5, 80335 München</p>
-      
+      <p>Dauerhafte Stressbelastungen bergen ein hohes Gesundheitsrisiko in sich...</p>
     </section>
 
     <section id="leiter">
       <h2>Wer führt die Kurse durch?</h2>
-      <p>Wir sind erfahrenene Psycholog*innen, die von der <strong>IFT-Gesundheitsförderung</strong> speziell für das Gruppenprogramm Ausgebildet wurden.
-
+      <p>Die Kurse werden von erfahrenen Psycholog*innen durchgeführt...</p>
     </section>
 
-    <section>
-      <h2>Wie lange dauert ein Kurs?</h2>
-      <p>Ein Kurs dauert zwischen <strong>zwei bis drei Monaten</strong>. 
-        Je nach Anzahl der Gruppenteilnehmenden variiert die Gesamtanzahl des Programms zwischen 10 und 12 Sitzungen. </p>
-    </section>
-
-    <section>
-      <h2>Für wen ist der Kurs geeignet?</h2>
-      <p>Teilnehmen können <strong>Erwachsene und Jugendliche</strong>, die lernen möchten, besser mit Stress und Belastungen umzugehen. Auch als Unternehmen können Sie uns als Präventionsmaßnahme für ihr Team buchen.</p>
-    </section>
-
-    <section>
-      <h2>Informationen zum Kurs</h2>
-      <p>Der Kurs wird in <strong>Gruppen mit bis zu zwölf Teilnehmer*innen</strong> durchgeführt. So bleibt genug Zeit für individuelle Unterstützung.</p>
-      <p>Sie lernen, Situationen schnell und sicher zu analysieren und gezielt zu verändern.</p>
-
-      <h3>Neue Strategien erlernen und erproben</h3>
-      <ul>
-        <li>Entspannungsübungen</li>
-        <li>Positive Selbstinstruktion</li>
-        <li>Systematisches Problemlösen</li>
-        <li>Einstellungsänderung</li>
-        <li>Zeitmanagement</li>
-        <li>Stressausgleichende Aktivitäten</li>
-      </ul>
-      <p>Besonderer Wert wird auf die <strong>Umsetzung im Alltag</strong> gelegt, um langfristig Stress vorzubeugen.</p>
-    </section>
-
-    <!-- KONTAKT -->
     <section id="kontakt">
       <h2>Kontakt</h2>
-      <p>Sie haben Interesse oder Fragen? Schreiben Sie uns einfach eine E-Mail oder rufen Sie uns an:</p>
-      <p>
-        📧 <a href="mailto:stressweg-muenchen@web.de">stressweg-muenchen@web.de</a><br>
-        📞 <a href="tel:+491728925219">+49&nbsp;172&nbsp;8925219</a>
-      </p>
-    </section>
-
-    <section style="text-align:center; margin-top: 2rem;">
-      <img src="images/Logo.jpg" alt="Logo" style="width:6cm; height:auto; border:none; box-shadow:none; border-radius:0; filter:none;">
+      <p>📧 <a href="mailto:stressweg-muenchen@web.de">stressweg-muenchen@web.de</a><br>
+      📞 <a href="tel:+491728925219">+49&nbsp;172&nbsp;8925219</a></p>
     </section>
   </main>
 
@@ -280,34 +239,14 @@
   </footer>
 
   <script>
-    // Mobile Menü Toggle + Schließen nach Klick
     const toggle = document.querySelector(".menu-toggle");
     const menu = document.querySelector("nav ul");
-
     function toggleMenu(){ menu.classList.toggle("show"); }
     toggle.addEventListener("click", toggleMenu);
-    toggle.addEventListener("keydown", (e)=>{ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); toggleMenu(); }});
-
-    // Links schließen das Menü auf Mobile
-    menu.querySelectorAll("a[href^='#']").forEach(a => {
-      a.addEventListener("click", () => menu.classList.remove("show"));
-    });
-
-    // (Optional) Sanfter Scroll-Fallback mit Offset für sehr alte Browser
-    document.querySelectorAll("a[href^='#']").forEach(link => {
-      link.addEventListener("click", function(e){
-        const id = this.getAttribute("href").slice(1);
-        const target = document.getElementById(id);
-        if (!target) return;
-        if (!('scrollBehavior' in document.documentElement.style)) {
-          e.preventDefault();
-          const y = target.getBoundingClientRect().top + window.pageYOffset - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) + 16);
-          window.scrollTo({ top: y, behavior: "smooth" });
-          history.pushState(null, "", "#" + id);
-        }
-      });
+    toggle.addEventListener("keydown", (e)=>{ if(e.key==="Enter"||e.key===" "){e.preventDefault(); toggleMenu(); }});
+    menu.querySelectorAll("a[href^='#']").forEach(a=>{
+      a.addEventListener("click",()=>menu.classList.remove("show"));
     });
   </script>
 </body>
 </html>
-
