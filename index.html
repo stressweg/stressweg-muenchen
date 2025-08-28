@@ -109,30 +109,29 @@
     }
 
     /* --- Header --- */
-    header {
-      text-align: center;
-      padding: calc(2.5rem + .5*var(--nav-h)) 2rem 2rem 2rem; /* etwas mehr Top-Padding wegen sticky Nav */
-      color: white;
-    }
-    header h1 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      font-weight: 400;
-    }
+header {
+  text-align: center;
+  padding: calc(2.5rem + .5*var(--nav-h)) 2rem 2rem 2rem;
+  color: #333;
+  background: rgba(255,255,255,0.85); /* halbtransparentes Weiß */
+  border-radius: 12px;
+  margin: 2rem auto 1rem;
+  max-width: 900px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.1);
+}
+header h1 { font-size: 2.2rem; margin-bottom: 0.5rem; }
+header p { font-size: 1.2rem; font-weight: 400; }
 
-    /* --- Main Content --- */
-    main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.97);
-      border-radius: 12px;
-      box-shadow: 0 8px 32px rgba(74,144,164,0.07);
-      animation: fadeIn 1.2s;
-    }
+/* --- Main Content --- */
+main {
+  max-width: 900px;
+  margin: 1rem auto 2rem;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.9); /* halbtransparentes Weiß */
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  animation: fadeIn 1.2s;
+}
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(40px);}
       to { opacity: 1; transform: none;}
