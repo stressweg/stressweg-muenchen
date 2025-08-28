@@ -109,18 +109,15 @@
     header p { font-size:1.2rem; font-weight:400; }
 
     /* --- Main Content --- */
-    main {
+   main {
   max-width: 900px;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: rgba(255,255,255,0.2);
-backdrop-filter: blur(8px);
--webkit-backdrop-filter: blur(8px);
+  background-color: transparent; /* wirklich durchsichtig */
   border-radius: 12px;
-  box-shadow: none; /* ggf. auch entfernen, falls du gar keinen weißen Schimmer willst */
+  box-shadow: none; /* Schatten auch weg, falls er wie ein weißer Rand wirkt */
   animation: fadeIn 1.2s;
 }
-
 
     h2, h3 { color: #4a90a4; font-weight: 700; }
     section { margin-bottom: 2.5rem; }
