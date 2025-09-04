@@ -35,6 +35,13 @@ body::before {
   transform: translateZ(0); /* reduziert Bugs auf Mobile */
 }
 
+    /* Optional: auf sehr kleinen Screens lieber mitscrollen lassen (Performance) */
+@media (max-width: 480px){
+  body::before{
+    position: absolute; /* scrollt mit */
+  }
+}
+
     /* --- Navigation --- */
     nav {
       background-color: rgba(74, 144, 164, 0.95);
