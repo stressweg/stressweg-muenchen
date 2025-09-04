@@ -17,13 +17,23 @@
     }
 
     body {
-      font-family: 'Montserrat', Arial, sans-serif;
-      margin: 0;
-      color: #333;
-      line-height: 1.7;
-      background: url('images/pexels-bg.jpg') no-repeat center center fixed;
-      background-size: cover;
-    }
+  font-family: 'Montserrat', Arial, sans-serif;
+  margin: 0;
+  color: #333;
+  line-height: 1.7;
+  background: #ffffff; /* Fallback-Hintergrundfarbe */
+  position: relative;  /* wichtig für ::before */
+}
+
+/* Fixer, vollflächiger Hintergrund */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url('images/pexels-bg.jpg') center / cover no-repeat;
+  z-index: -1;        /* hinter allen Inhalten */
+  transform: translateZ(0); /* reduziert Bugs auf Mobile */
+}
 
     /* --- Navigation --- */
     nav {
