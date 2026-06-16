@@ -3,306 +3,407 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Stressbewältigungskurse – Diem & Stadler</title>
-  <meta name="description" content="Professionelle Stressbewältigungskurse in München von Psychologinnen Diem & Stadler. Gruppenkurse, individuelle Beratung und nachhaltige Methoden." />
+  <title>stressweg München – Stressbewältigungskurse von Diem &amp; Stadler</title>
+  <meta name="description" content="Wissenschaftlich fundierte Stressbewältigungskurse in München. Das bewährte IFT-Gruppenprogramm „Der erfolgreiche Umgang mit täglichen Belastungen“ – mit Zuschuss der Krankenkassen. Geleitet von den Psychologinnen Melissa Diem & Hannah Stadler." />
   <link rel="icon" href="mensch.png" />
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --nav-h:64px;
-    }
-    html{ scroll-behavior:smooth; }
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior:auto; }
-    }
-
-    body {
-  font-family: 'Montserrat', Arial, sans-serif;
-  margin: 0;
-  color: #333;
-  line-height: 1.7;
-  background: #ffffff; /* Fallback-Hintergrundfarbe */
-  position: relative;  /* wichtig für ::before */
-}
-
-/* Fixer, vollflächiger Hintergrund */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url('images/pexels-bg.jpg') center / cover no-repeat;
-  z-index: -1;        /* hinter allen Inhalten */
-  transform: translateZ(0); /* reduziert Bugs auf Mobile */
-}
-
-
-    /* --- Navigation --- */
-    nav {
-      background-color: rgba(74, 144, 164, 0.95);
-      color: white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 2rem;
-      height: var(--nav-h);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-    nav .logo {
-      font-size: 1.6rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      color: #fff;
-    }
-    nav .logo img{ height: 40px; width: auto; }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0; padding: 0;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      padding: .4rem .2rem;
-      border-radius: 6px;
-      transition: background-color .2s, color .2s;
-    }
-    nav ul li a:hover{
-      background-color: rgba(255,255,255,.15);
-    }
-
-    /* --- Mobile Menü Button --- */
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-    .menu-toggle div {
-      width: 25px;
-      height: 3px;
-      background: white;
-      border-radius: 2px;
-    }
-    @media (max-width: 768px) {
-      nav{ padding:0 1rem; }
-      nav ul {
-        display:none;
-        position:absolute;
-        top:var(--nav-h);
-        right:0;
-        flex-direction:column;
-        background: rgba(74, 144, 164, 0.97);
-        width:min(260px,90vw);
-        padding:.8rem;
-        border-radius:0 0 10px 10px;
-        box-shadow:0 10px 24px rgba(0,0,0,.12);
-      }
-      nav ul.show{ display:flex; }
-      .menu-toggle{ display:flex; }
-    }
-
-    /* --- Header --- */
-    header {
-      text-align:center;
-      padding: calc(2.5rem + .5*var(--nav-h)) 2rem 2rem 2rem;
-      color: white;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
-    }
-    header h1 { font-size:2.2rem; margin-bottom:.5rem; }
-    header p { font-size:1.2rem; font-weight:400; }
-
-    /* --- Main Content --- */
- main { max-width: 900px; margin: 2rem auto; padding: 2rem; background-color: rgba(255, 255, 255, 0.9); /* halbtransparent */ border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); animation: fadeIn 1.2s; } @keyframes fadeIn { from{ opacity:0; transform:translateY(40px);} to{ opacity:1; transform:none;}
-                                                          }
-
-    h2, h3 { color: #4a90a4; font-weight: 700; }
-    section { margin-bottom: 2.5rem; }
-    .highlight {
-      background-color: #eef8fb;
-      padding: 1.2rem;
-      border-left: 5px solid #4a90a4;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-      font-size: 1.06rem;
-    }
-    .info-box {
-      background-color: #f7f7f7;
-      border-radius: 8px;
-      padding: 1rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 2px 8px rgba(74,144,164,0.03);
-    }
-    ul { padding-left: 1.5rem; }
-    ul li { margin-bottom: 0.6rem; }
-
-    /* Anker-Offset: verhindert, dass Titel unter der Navi verschwinden */
-    section[id] { scroll-margin-top: calc(var(--nav-h) + 16px); }
-
-    /* --- Footer --- */
-    footer {
-      background-color: rgba(224, 224, 224, 0.93);
-      text-align: center;
-      padding: 1.1rem;
-      font-size: 1rem;
-      margin-top: 2rem;
-      border-radius: 0 0 12px 12px;
-      box-shadow: 0 -2px 16px rgba(74,144,164,0.04);
-    }
-    a { color: #4a90a4; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">
-      <!-- Neues Logo: mensch.png -->
-      <img src="mensch.png" alt="Logo Stressbewältigungskurse">
-      <span>stressweg</span>
-    </div>
-    <div class="menu-toggle" aria-label="Menü öffnen" role="button" tabindex="0">
-      <div></div><div></div><div></div>
-    </div>
-    <ul>
-      <li><a href="#angebot">Kursangebot</a></li>
-      <li><a href="#programm">Programm</a></li>
-      <li><a href="#leiter">Kursleiter</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
-    </ul>
-  </nav>
+  <!-- ===== Navigation ===== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="brand" aria-label="stressweg – Startseite">
+        <img src="mensch.png" alt="" />
+        <span>stress<b>weg</b></span>
+      </a>
 
-  <!-- Header -->
-  <header>
-    <h1>Der erfolgreiche Umgang mit täglichen Belastungen</h1>
-    <p>Ein Gruppenprogramm zur Stressbewältigung</p>
-    <p>Für alle, die mit täglichen Belastungen besser zurechtkommen wollen.</p>
+      <div class="nav__menu" id="navMenu">
+        <ul class="nav__links">
+          <li><a href="#angebot">Kursangebot</a></li>
+          <li><a href="#programm">Programm</a></li>
+          <li><a href="#strategien">Methoden</a></li>
+          <li><a href="#team">Kursleiterinnen</a></li>
+          <li><a href="#kosten">Kosten</a></li>
+        </ul>
+        <div class="nav__cta">
+          <a href="#kontakt" class="btn">Platz anfragen <span class="arrow" aria-hidden="true">→</span></a>
+        </div>
+      </div>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navMenu">
+        <span></span>
+      </button>
+    </div>
   </header>
 
-  <!-- Main -->
-  <main>
-    <section class="info-box">
-      <section id="angebot">
-      <h2>Kursangebot</h2>
-      <p>Melissa Diem und Hannah Stadler bieten regelmäßig <strong>Kurse zur Stressbewältigung</strong> an. 
-        "Der erfolgreiche Umgang mit täglichen Belastungen“ ist ein sowohl auf kurzfristige wie auf langfristige und nachhaltige Verhaltensänderungen ausgerichtetes Programm zur Förderung von Stressbewältigungskompetenzen. 
-        Es arbeitet mit Methoden der modernen kognitiven Verhaltenstherapie.
-        Alle Kurse dauern insgesamt zehn Wochen mit wöchentlichen Treffen von jeweils 1,5 Stunden. Auch als Unternehmen können Sie uns als Präventionsmaßnahme für ihr Team buchen. Unser Manual kann auch als Tagesworkshop stattfinden.</p>
-    
-      <h2>Wo finden die Kurse statt?</h2>
-      <p> <strong>Adresse:</strong> Elisenstraße 5, 80335 München </p>
-    
+  <main id="top">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="hero__blob" style="width:380px;height:380px;background:var(--orange-100);top:-80px;left:-120px;"></div>
+      <div class="hero__content reveal">
+        <span class="hero__badge"><span class="dot"></span> IFT-Programm · seit über 20 Jahren bewährt</span>
+        <h1>Der erfolgreiche Umgang mit <span class="accent">täglichen Belastungen</span></h1>
+        <p class="hero__sub">Ein wissenschaftlich fundiertes Gruppenprogramm zur Stressbewältigung in München – für alle, die im Alltag wieder gelassener, klarer und gesünder werden möchten.</p>
+        <div class="hero__actions">
+          <a href="#kontakt" class="btn">Platz anfragen <span class="arrow" aria-hidden="true">→</span></a>
+          <a href="#programm" class="btn btn--ghost">So funktioniert's</a>
+        </div>
+        <div class="hero__facts">
+          <div class="hero__fact"><strong>10–12</strong><span>Sitzungen pro Kurs</span></div>
+          <div class="hero__fact"><strong>1,5 Std</strong><span>pro Woche</span></div>
+          <div class="hero__fact"><strong>max. 12</strong><span>Teilnehmende</span></div>
+        </div>
+      </div>
+
+      <div class="hero__media reveal">
+        <div class="hero__photo">
+          <img src="images/pexels-bg.jpg" alt="Frau lehnt sich entspannt und lächelnd aus einem Autofenster in die Natur" />
+        </div>
+        <div class="hero__chip hero__chip--tl">
+          <span class="ic" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-9.5A4.5 4.5 0 0 1 12 7a4.5 4.5 0 0 1 7 4.5C19 16.5 12 21 12 21z"/></svg>
+          </span>
+          <div>Mehr Gelassenheit<small>im Alltag</small></div>
+        </div>
+        <div class="hero__chip hero__chip--br">
+          <span class="ic" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </span>
+          <div>Krankenkassen-Zuschuss<small>in der Regel möglich</small></div>
+        </div>
+      </div>
     </section>
 
-    <section id="programm">
-      <h2>Informationen zum Programm</h2>
-      <p>Dauerhafte Stressbelastungen bergen ein hohes Gesundheitsrisiko in sich. Sie können sowohl zu psychischen als auch körperlichen Erkrankungen bis hin zum Burnout führen.</p>
-      <p>Das Gruppenprogramm <strong>Der erfolgreiche Umgang mit täglichen Belastungen</strong> bietet in Kursen die Möglichkeit, <strong>Strategien zur Stressbewältigung</strong> zu erwerben. Es beruht auf <strong>aktuellen wissenschaftlichen Erkenntnissen</strong> der Stressforschung und erfüllt die Anforderungen von Krankenkassen und Gesundheitsverbänden.
-      Das IFT-Programm zur Stressbewältigung hat sich seit mehr als 20 Jahren in der Praxis bewährt. Längerer Stress kann zu ernsthaften Gesundheitsproblemen führen: Depression, Müdigkeit, Apathie, erektile Dysfunktion (mehr über die Behandlung), Reizung und Herzprobleme.  </p>
+    <!-- ===== Trust band ===== -->
+    <div class="trust">
+      <div class="container trust__inner">
+        <span>Methoden der modernen <strong>kognitiven Verhaltenstherapie</strong></span>
+        <span class="sep">•</span>
+        <span>Anerkannt nach <strong>§ 20 SGB V</strong></span>
+        <span class="sep">•</span>
+        <span>Ausgebildet von der <strong>IFT-Gesundheitsförderung</strong></span>
+        <span class="sep">•</span>
+        <span>Standort <strong>München · Elisenstraße</strong></span>
+      </div>
+    </div>
+
+    <!-- ===== Kursangebot ===== -->
+    <section class="section" id="angebot">
+      <div class="container">
+        <div class="split">
+          <div class="reveal">
+            <span class="eyebrow">Kursangebot</span>
+            <h2>Stressbewältigung, die im echten Leben wirkt</h2>
+            <p class="lead">Melissa Diem und Hannah Stadler bieten regelmäßig Kurse zur Stressbewältigung an. „Der erfolgreiche Umgang mit täglichen Belastungen“ ist ein Programm, das auf kurzfristige Entlastung ebenso ausgerichtet ist wie auf langfristige, nachhaltige Verhaltensänderung.</p>
+            <p>Es fördert gezielt Ihre Stressbewältigungskompetenzen und arbeitet mit Methoden der modernen kognitiven Verhaltenstherapie. Alle Kurse umfassen rund zehn Wochen mit wöchentlichen Treffen von jeweils 1,5 Stunden.</p>
+            <p>Auch als <strong>Unternehmen</strong> können Sie uns als Präventionsmaßnahme für Ihr Team buchen – unser Manual lässt sich ebenso als kompakter <strong>Tagesworkshop</strong> durchführen.</p>
+          </div>
+
+          <aside class="facts-card reveal" aria-label="Kurs auf einen Blick">
+            <h3>Der Kurs auf einen Blick</h3>
+            <ul class="facts-list">
+              <li>
+                <span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+                <div><b>Dauer</b><span>10–12 Sitzungen über 2–3 Monate</span></div>
+              </li>
+              <li>
+                <span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+                <div><b>Gruppengröße</b><span>Bis zu 12 Teilnehmer*innen</span></div>
+              </li>
+              <li>
+                <span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-9.5A7 7 0 0 1 19 11.5C19 16.5 12 21 12 21z"/><circle cx="12" cy="11" r="2.5"/></svg></span>
+                <div><b>Ort</b><span>Elisenstraße 5, 80335 München</span></div>
+              </li>
+              <li>
+                <span class="ic" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h18v12H3z"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></span>
+                <div><b>Kosten</b><span>490 € – Zuschuss der Krankenkasse möglich</span></div>
+              </li>
+            </ul>
+            <a href="#kontakt" class="btn" style="width:100%;justify-content:center;margin-top:1.2rem;">Unverbindlich anfragen</a>
+          </aside>
+        </div>
+      </div>
     </section>
 
-    <section id="leiter">
-      <h2>Wer führt die Kurse durch?</h2>
-      <p>Wir sind erfahrene Psycholog*innen, die von der <strong>IFT-Gesundheitsförderung</strong> speziell für Gruppenangebote ausgebildet wurden.
-      Nach dem Masterstudium in Psychologie absolvierten wir zusätzlich die Weiterbildung zur psychologischen Psychotherapeutin am IFT in München
-        und erhielten für die Kognitive Verhaltenstherapie die Approbation.</p>
+    <!-- ===== Stats ===== -->
+    <section class="section section--teal">
+      <div class="container">
+        <div class="stats">
+          <div class="reveal"><div class="stat__num">20<span class="unit">+</span></div><div class="stat__label">Jahre erprobtes IFT-Programm</div></div>
+          <div class="reveal"><div class="stat__num">10–12</div><div class="stat__label">Sitzungen pro Kurs</div></div>
+          <div class="reveal"><div class="stat__num">6</div><div class="stat__label">erlernbare Strategien</div></div>
+          <div class="reveal"><div class="stat__num">490<span class="unit"> €</span></div><div class="stat__label">Kursbeitrag (bezuschussbar)</div></div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Wie lange dauert ein Kurs?</h2>
-      <p>Ein Kurs dauert zwischen <strong>zwei bis drei Monaten</strong>. 
-        Je nach Anzahl der Gruppenteilnehmenden variiert die Gesamtanzahl des Programms zwischen 10 und 12 Sitzungen. </p>
+    <!-- ===== Programm ===== -->
+    <section class="section" id="programm">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Informationen zum Programm</span>
+          <h2>Warum sich Stressbewältigung lohnt</h2>
+          <p class="lead">Dauerhafte Stressbelastung birgt ein hohes Gesundheitsrisiko. Sie kann zu psychischen wie körperlichen Beschwerden bis hin zum Burnout führen – muss sie aber nicht.</p>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="card reveal">
+            <div class="card__icon card__icon--orange" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+            </div>
+            <h3>Wenn Stress chronisch wird</h3>
+            <p>Anhaltender Stress kann sich auf Körper und Psyche auswirken – etwa durch innere Anspannung, Schlafprobleme, Erschöpfung, Konzentrationsschwierigkeiten, Gereiztheit oder Niedergeschlagenheit. Frühzeitiges Gegensteuern beugt ernsteren Folgen vor.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3>Wissenschaftlich fundiert</h3>
+            <p>Das Gruppenprogramm „Der erfolgreiche Umgang mit täglichen Belastungen“ vermittelt wirksame Strategien zur Stressbewältigung. Es beruht auf aktuellen Erkenntnissen der Stressforschung und erfüllt die Anforderungen von Krankenkassen und Gesundheitsverbänden. Das IFT-Programm hat sich seit mehr als 20 Jahren in der Praxis bewährt.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Für wen ist der Kurs geeignet?</h2>
-      <p>Teilnehmen können <strong>Erwachsene und Jugendliche</strong>, die lernen möchten, besser mit Stress und Belastungen umzugehen. Auch als Unternehmen können Sie uns als Präventionsmaßnahme für ihr Team buchen.</p>
+    <!-- ===== Strategien ===== -->
+    <section class="section section--tint" id="strategien">
+      <div class="container">
+        <div class="section__head section__head--center reveal">
+          <span class="eyebrow">Neue Strategien erlernen &amp; erproben</span>
+          <h2>Sechs Methoden für mehr Gelassenheit</h2>
+          <p class="lead">Im Kurs lernen Sie, Situationen schnell und sicher zu analysieren und gezielt zu verändern. Besonderer Wert liegt auf der Umsetzung im Alltag, um Stress langfristig vorzubeugen.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="card reveal">
+            <div class="card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3>Entspannungsübungen</h3>
+            <p>Körperliche und mentale Anspannung gezielt lösen und zur Ruhe finden.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.2 1 2h6c0-.8.4-1.5 1-2A7 7 0 0 0 12 2z"/></svg></div>
+            <h3>Positive Selbstinstruktion</h3>
+            <p>Hilfreiche innere Sätze entwickeln, die in Belastungssituationen stärken.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6 4-4 4 4"/><path d="M12 2v10"/><path d="M4 14a8 8 0 0 0 16 0"/></svg></div>
+            <h3>Systematisches Problemlösen</h3>
+            <p>Belastungen Schritt für Schritt analysieren und Lösungen umsetzen.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.2-8.5"/><path d="m9 11 3 3L22 4"/></svg></div>
+            <h3>Einstellungsänderung</h3>
+            <p>Belastende Denkmuster erkennen und in realistischere Sichtweisen verwandeln.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <h3>Zeitmanagement</h3>
+            <p>Prioritäten setzen, Aufgaben strukturieren und Freiräume bewusst schaffen.</p>
+          </div>
+          <div class="card reveal">
+            <div class="card__icon" aria-hidden="true"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 5a2 2 0 0 0-2 2v9"/><path d="M7 17a5 5 0 0 1-2-4V5"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><path d="M12 22a4 4 0 0 0 4-4"/><circle cx="12" cy="20" r="2"/></svg></div>
+            <h3>Stressausgleichende Aktivitäten</h3>
+            <p>Quellen für Erholung, Bewegung und Freude fest im Alltag verankern.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h2>Informationen zum Kurs</h2>
-      <p>Der Kurs wird in <strong>Gruppen mit bis zu zwölf Teilnehmer*innen</strong> durchgeführt. So bleibt genug Zeit für individuelle Unterstützung.</p>
-      <p>Sie lernen, Situationen schnell und sicher zu analysieren und gezielt zu verändern.</p>
-      
-       <h2>Kosten</h2>
-      <p> Das Kurskonzept entspricht dem Präventionsprinzip "Multimodales Stressmanagement" des "Leitfadens Prävention" der Spitzenverbände der Krankenkassen. 
-        Bei Vorliegen der Voraussetzungen erstatten die GKV anteilmäßig die Kosten der Kursteilnahme.
-        Unsere Erfahrung ist, dass die Kosten in der Regel von den Krankenkassen bezuschusst werden. 
-        Die Kosten für den Kurs pro Teilnehmer*in betragen <strong>490 Euro</strong>. 
-        Fragen Sie einfach direkt bei Ihrer Krankenkasse nach, ob der Präventionskurs übernommen wird.</p>
+    <!-- ===== FAQ / Details ===== -->
+    <section class="section" id="details">
+      <div class="container">
+        <div class="section__head section__head--center reveal">
+          <span class="eyebrow">Gut zu wissen</span>
+          <h2>Häufige Fragen zum Kurs</h2>
+        </div>
 
-      <h3>Neue Strategien erlernen und erproben</h3>
-      <ul>
-        <li>Entspannungsübungen</li>
-        <li>Positive Selbstinstruktion</li>
-        <li>Systematisches Problemlösen</li>
-        <li>Einstellungsänderung</li>
-        <li>Zeitmanagement</li>
-        <li>Stressausgleichende Aktivitäten</li>
-      </ul>
-      <p>Besonderer Wert wird auf die <strong>Umsetzung im Alltag</strong> gelegt, um langfristig Stress vorzubeugen.</p>
+        <div class="faq reveal">
+          <details class="faq__item" open>
+            <summary class="faq__q">Für wen ist der Kurs geeignet? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>Teilnehmen können <strong>Erwachsene und Jugendliche</strong>, die lernen möchten, besser mit Stress und Belastungen umzugehen. Auch Unternehmen können uns als Präventionsmaßnahme für ihr Team buchen.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Wie lange dauert ein Kurs? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>Ein Kurs dauert in der Regel <strong>zwei bis drei Monate</strong>. Je nach Anzahl der Teilnehmenden variiert der Gesamtumfang zwischen 10 und 12 Sitzungen – bei wöchentlichen Treffen von jeweils 1,5 Stunden.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Wie läuft der Kurs ab? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>Der Kurs wird in <strong>Gruppen mit bis zu zwölf Teilnehmer*innen</strong> durchgeführt. So bleibt genug Zeit für individuelle Unterstützung. Sie lernen, Situationen schnell und sicher zu analysieren und gezielt zu verändern.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Wo finden die Kurse statt? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>Die Kurse finden zentral in München statt: <strong>Elisenstraße 5, 80335 München</strong>. Den genauen Standort finden Sie weiter unten auf der Karte.</p>
+            </div>
+          </details>
+          <details class="faq__item">
+            <summary class="faq__q">Übernimmt die Krankenkasse die Kosten? <span class="plus" aria-hidden="true"></span></summary>
+            <div class="faq__a">
+              <p>Das Kurskonzept entspricht dem Präventionsprinzip „Multimodales Stressmanagement“ des „Leitfadens Prävention“ der Spitzenverbände der Krankenkassen. Bei Vorliegen der Voraussetzungen erstatten die gesetzlichen Krankenkassen die Kosten anteilig. Unsere Erfahrung zeigt: In der Regel werden die Kosten bezuschusst. Fragen Sie am besten direkt bei Ihrer Krankenkasse nach.</p>
+            </div>
+          </details>
+        </div>
+      </div>
     </section>
 
-    <!-- KONTAKT -->
-    <section id="kontakt">
-      <h2>Kontakt</h2>
-      <p>Sie haben Interesse oder Fragen? Schreiben Sie uns einfach eine E-Mail oder rufen Sie uns an:</p>
-           <p><strong>Hannah Stadler</strong>, Psychologin M. Sc. (Psycholog. Psychotherapeutin)</p>
-            <p><strong>Melissa Diem</strong>, Psychologin M. Sc. (Psycholog. Psychotherapeutin)</p>
-      <p>
-        📧 <a href="mailto:stressweg-muenchen@web.de">stressweg-muenchen@web.de</a><br>
-        📞 <a href="tel:+491728925219">+49&nbsp;172&nbsp;8925219</a>
-      </p>
+    <!-- ===== Kosten ===== -->
+    <section class="section section--tint" id="kosten">
+      <div class="container">
+        <div class="pricing">
+          <div class="reveal">
+            <span class="eyebrow">Kosten &amp; Förderung</span>
+            <h2>Investition in Ihre Gesundheit</h2>
+            <p class="lead">Das Kurskonzept entspricht dem Präventionsprinzip „Multimodales Stressmanagement“ des „Leitfadens Prävention“ der Spitzenverbände der Krankenkassen.</p>
+            <p>Bei Vorliegen der Voraussetzungen erstatten die gesetzlichen Krankenkassen die Kosten der Kursteilnahme anteilig. Unsere Erfahrung ist, dass die Kosten in der Regel von den Krankenkassen bezuschusst werden. Fragen Sie einfach direkt bei Ihrer Krankenkasse nach, ob der Präventionskurs übernommen wird.</p>
+          </div>
+
+          <div class="price-card reveal">
+            <span class="tag">Stressbewältigungskurs</span>
+            <div class="amount">490 €<small> / Teilnehmer*in</small></div>
+            <ul class="check-list">
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> 10–12 Sitzungen über 2–3 Monate</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Kleingruppe mit max. 12 Personen</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Methoden der kognitiven Verhaltenstherapie</li>
+              <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg> Zuschuss der Krankenkasse in der Regel möglich</li>
+            </ul>
+            <a href="#kontakt" class="btn" style="width:100%;justify-content:center;">Platz anfragen <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section style="text-align:center; margin-top: 2rem;">
-      <img src="images/Logo.jpg" alt="Logo" style="width:6cm; height:auto; border:none; box-shadow:none; border-radius:0; filter:none;">
+    <!-- ===== Team ===== -->
+    <section class="section" id="team">
+      <div class="container">
+        <div class="section__head section__head--center reveal">
+          <span class="eyebrow">Wer führt die Kurse durch?</span>
+          <h2>Ihre Kursleiterinnen</h2>
+          <p class="lead">Wir sind erfahrene Psycholog*innen, die von der IFT-Gesundheitsförderung speziell für Gruppenangebote ausgebildet wurden. Nach dem Masterstudium in Psychologie absolvierten wir die Weiterbildung zur psychologischen Psychotherapeutin am IFT in München und erhielten für die kognitive Verhaltenstherapie die Approbation.</p>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="team-card reveal">
+            <div class="team-card__avatar team-card__avatar--a" aria-hidden="true">HS</div>
+            <h3>Hannah Stadler</h3>
+            <div class="role">Psychologin M. Sc. · Psychologische Psychotherapeutin</div>
+            <ul>
+              <li>Masterstudium der Psychologie</li>
+              <li>Approbation in kognitiver Verhaltenstherapie (VT)</li>
+              <li>Ausbildung für Gruppenangebote der IFT-Gesundheitsförderung</li>
+            </ul>
+          </div>
+          <div class="team-card reveal">
+            <div class="team-card__avatar team-card__avatar--b" aria-hidden="true">MD</div>
+            <h3>Melissa Diem</h3>
+            <div class="role">Psychologin M. Sc. · Psychologische Psychotherapeutin</div>
+            <ul>
+              <li>Masterstudium der Psychologie</li>
+              <li>Approbation in kognitiver Verhaltenstherapie (VT)</li>
+              <li>Ausbildung für Gruppenangebote der IFT-Gesundheitsförderung</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Standort ===== -->
+    <section class="section section--tint" id="standort">
+      <div class="container">
+        <div class="location">
+          <div class="reveal">
+            <span class="eyebrow">Wo finden die Kurse statt?</span>
+            <h2>Mitten in München</h2>
+            <p class="lead">Unsere Kursräume liegen zentral und gut erreichbar in der Münchner Innenstadt.</p>
+            <p style="font-size:1.15rem;color:var(--teal-900);font-weight:600;">Elisenstraße 5<br />80335 München</p>
+            <p>Nur wenige Gehminuten vom Hauptbahnhof und vom Königsplatz entfernt – bequem mit öffentlichen Verkehrsmitteln zu erreichen.</p>
+            <a class="btn btn--ghost" href="https://www.openstreetmap.org/search?query=Elisenstra%C3%9Fe%205%2C%2080335%20M%C3%BCnchen" target="_blank" rel="noopener">Route planen</a>
+          </div>
+          <div class="location__map reveal">
+            <iframe
+              title="Karte: Elisenstraße 5, 80335 München"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=11.5560%2C48.1410%2C11.5700%2C48.1480&amp;layer=mapnik&amp;marker=48.1445%2C11.5630"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Kontakt / CTA ===== -->
+    <section class="section" id="kontakt">
+      <div class="container">
+        <div class="cta reveal">
+          <div class="cta__deco" aria-hidden="true"></div>
+          <span class="eyebrow">Kontakt</span>
+          <h2>Interesse oder Fragen?</h2>
+          <p>Schreiben Sie uns einfach eine E-Mail oder rufen Sie uns an. Wir beraten Sie gern unverbindlich zum nächsten Kursstart und zur Kostenübernahme durch Ihre Krankenkasse.</p>
+          <div class="cta__actions">
+            <a href="mailto:stressweg-muenchen@web.de" class="btn btn--light">E-Mail schreiben</a>
+            <a href="tel:+491728925219" class="btn">Jetzt anrufen <span class="arrow" aria-hidden="true">→</span></a>
+          </div>
+          <div class="cta__methods">
+            <a class="cta__method" href="mailto:stressweg-muenchen@web.de">
+              <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+              stressweg-muenchen@web.de
+            </a>
+            <a class="cta__method" href="tel:+491728925219">
+              <span class="ic" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+              +49&nbsp;172&nbsp;8925219
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Melissa Diem &amp; Hannah Stadler – Stressbewältigungskurse ·
-    <a href="impressum.html">Impressum</a> ·
-    <a href="datenschutz.html">Datenschutz</a>
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a href="#top" class="brand"><img src="mensch.png" alt="" /> <span>stress<b>weg</b></span></a>
+          <p>Stressbewältigungskurse in München – das bewährte IFT-Gruppenprogramm „Der erfolgreiche Umgang mit täglichen Belastungen“, geleitet von Melissa Diem &amp; Hannah Stadler.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#angebot">Kursangebot</a></li>
+            <li><a href="#programm">Programm</a></li>
+            <li><a href="#strategien">Methoden</a></li>
+            <li><a href="#team">Kursleiterinnen</a></li>
+            <li><a href="#kosten">Kosten</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul>
+            <li>Elisenstraße 5, 80335 München</li>
+            <li><a href="mailto:stressweg-muenchen@web.de">stressweg-muenchen@web.de</a></li>
+            <li><a href="tel:+491728925219">+49&nbsp;172&nbsp;8925219</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2025 Melissa Diem &amp; Hannah Stadler – Stressbewältigungskurse</span>
+        <nav>
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </nav>
+      </div>
+    </div>
   </footer>
 
-  <script>
-    // Mobile Menü Toggle + Schließen nach Klick
-    const toggle = document.querySelector(".menu-toggle");
-    const menu = document.querySelector("nav ul");
-
-    function toggleMenu(){ menu.classList.toggle("show"); }
-    toggle.addEventListener("click", toggleMenu);
-    toggle.addEventListener("keydown", (e)=>{ if(e.key === "Enter" || e.key === " "){ e.preventDefault(); toggleMenu(); }});
-
-    // Links schließen das Menü auf Mobile
-    menu.querySelectorAll("a[href^='#']").forEach(a => {
-      a.addEventListener("click", () => menu.classList.remove("show"));
-    });
-
-    // (Optional) Sanfter Scroll-Fallback mit Offset für sehr alte Browser
-    document.querySelectorAll("a[href^='#']").forEach(link => {
-      link.addEventListener("click", function(e){
-        const id = this.getAttribute("href").slice(1);
-        const target = document.getElementById(id);
-        if (!target) return;
-        if (!('scrollBehavior' in document.documentElement.style)) {
-          e.preventDefault();
-          const y = target.getBoundingClientRect().top + window.pageYOffset - (parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) + 16);
-          window.scrollTo({ top: y, behavior: "smooth" });
-          history.pushState(null, "", "#" + id);
-        }
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
