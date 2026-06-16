@@ -1,0 +1,40 @@
+# stressweg München – Redesign
+
+Neugestaltung der Website [stressweg-muenchen.de](https://www.stressweg-muenchen.de) für die
+Stressbewältigungskurse von Melissa Diem &amp; Hannah Stadler.
+
+Eine moderne, statische One-Page-Website (HTML/CSS/JS, keine Build-Tools) mit den
+Originalinhalten und -bildern in neuem Design.
+
+## Struktur
+
+```
+.
+├── index.html          # Startseite (Hero, Angebot, Programm, Methoden, FAQ, Kosten, Team, Standort, Kontakt)
+├── impressum.html      # Impressum
+├── datenschutz.html    # Datenschutzerklärung
+├── styles.css          # Design-System & Layout
+├── script.js           # Navigation, Scroll-Effekte, Reveal-Animationen
+├── mensch.png          # Logo (Figur)
+└── images/
+    ├── Logo.jpg        # Original-Logo
+    └── pexels-bg.jpg   # Hero-Foto
+```
+
+## Lokal ansehen
+
+Einfach einen statischen Server im Projektordner starten:
+
+```bash
+python3 -m http.server 8000
+```
+
+Dann im Browser öffnen: <http://localhost:8000>
+
+## Design
+
+- Schriften: **Fraunces** (Überschriften) &amp; **Plus Jakarta Sans** (Fließtext) via Google Fonts
+- Farbpalette: Petrol/Teal &amp; warmes Orange (abgeleitet aus dem bestehenden Logo)
+- Vollständig responsiv inkl. mobilem Menü
+- Sanfte Scroll-Reveal-Animationen (mit `prefers-reduced-motion`-Unterstützung)
+- Kartenansicht des Standorts via OpenStreetMap
