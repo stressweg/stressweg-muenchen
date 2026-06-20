@@ -736,26 +736,3 @@ section[id] { scroll-margin-top: calc(var(--nav-h) + 24px); }
   .hero__chip--tl { left: 2%; }
   .hero__chip--br { right: 2%; }
 }
-/* ==========================================
-   Ein-/Ausblendanimation
-========================================== */
-
-.floating-hidden {
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(20px);
-  pointer-events: none;
-}
-
-.floating-visible {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-
-.floating-contact {
-  transition:
-    opacity 0.35s ease,
-    transform 0.35s ease,
-    visibility 0.35s ease;
-}
