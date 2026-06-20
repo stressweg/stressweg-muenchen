@@ -69,3 +69,31 @@
 
   // Current year (footer) – keep static 2025 label but allow auto-update if needed
 })();
+/* ==========================================
+   Floating Buttons ein-/ausblenden
+========================================== */
+
+const floatingContact = document.querySelector('.floating-contact');
+
+if (floatingContact) {
+
+  // initial verstecken
+  floatingContact.classList.add('floating-hidden');
+
+  const toggleFloatingButtons = () => {
+
+    if (window.scrollY > 400) {
+      floatingContact.classList.add('floating-visible');
+      floatingContact.classList.remove('floating-hidden');
+    } else {
+      floatingContact.classList.remove('floating-visible');
+      floatingContact.classList.add('floating-hidden');
+    }
+
+  };
+
+  toggleFloatingButtons();
+
+  window.addEventListener('scroll', toggleFloatingButtons);
+
+}
