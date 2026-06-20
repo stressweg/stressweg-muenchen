@@ -69,6 +69,3 @@
 
   // Current year (footer) – keep static 2025 label but allow auto-update if needed
 })();
-
-
-}
